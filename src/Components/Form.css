@@ -1,0 +1,51 @@
+.container{
+    max-width: 1300px;
+    margin: 0 auto;
+    background: linear-gradient(to right, #9cadbb, #4be3eb); /* left to right */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+
+.form-container {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 30px;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(189, 37, 37, 0.1);
+    transition: all 0.3s ease-in-out;
+    
+  }
+ form {
+    display: flex;
+    padding: 10px 15px;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+input{
+    flex-direction: column;
+    margin: 10px 15px;
+    padding: 10px 15px;
+}
+
+h1{
+    
+    font-weight: 200;
+
+    margin: 5px;
+    padding: 5px;
+}
+@media (max-width: 768px){
+    .container{
+      max-width:868px;
+        margin: 0 auto;
+        
+    }
+    .form-container {
+       width: max-content;
+    }
+    input{
+        width: 70%;
+    }
+}

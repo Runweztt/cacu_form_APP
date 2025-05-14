@@ -1,0 +1,65 @@
+
+*,* ::before ::after{
+    box-sizing: border-box;
+}
+
+
+
+
+.container{
+    max-width: 1300px;
+    margin: 0 auto;
+    background: linear-gradient(to right, #9cadbb, #4be3eb); /* left to right */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    
+
+}
+
+.cucu-grid{
+    display: grid;
+    margin-top: 10rem;
+    justify-content: center;
+    grid-template-columns: repeat(4,6rem);
+    grid-template-rows: minmax(7rem auto) repeat(5,6rem);
+    
+
+}
+.cucu-grid > button{
+    cursor: pointer;
+    font-size: 2rem;
+    border: 1px solid white;
+    outline: none;
+    background-color:  rgba(225, 225, 225, .75);;
+}
+.cucu-grid > button:hover,
+.cucu-grid > button:focus{
+    background-color:  rgba(225, 225, 225, .9);;
+
+}
+.output{
+    grid-column: 1 / -1;
+    background-color: rgba(0,0, 0,.75);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: space-around;
+    padding: 40px;
+    word-wrap: break-word;
+    word-break: break-all;
+
+}
+
+
+
+.output .curr-operand{
+  color: white;
+  font-size: 2.5rem;
+}
+.span-two{
+    grid-column: span 2;
+    
+}
+.output .prev-operand{
+    color:  rgba(225, 225, 225, .75);
+    font-size: 1.5rem;
+}
