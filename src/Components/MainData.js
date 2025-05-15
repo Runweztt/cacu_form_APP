@@ -1,31 +1,43 @@
 class MainData {
-    constructor(firstname, lastname, email, password, address) {
-        this.firstname = firstname;
-        this.lastname = lastname;
-        this.email = email;
-        this.password = password;
-        this.address = address;
-    }
+  constructor(firstname, lastname, email, password, address) {
+    this.firstname = firstname;
+    this.lastname = lastname;
+    this.email = email;
+    this.password = password;
+    this.address = address;
+  }
 
-    get Firstname() {
-        return this.firstname;
+  getFullName() {
+    return `${this.firstname} ${this.lastname}`;
+  }
+
+  hidePassword() {
+    return '*'.repeat(this.password.length);
+  }
+
+  toJSON() {
+    return {
+      firstname: this.firstname,
+      lastname: this.lastname,
+      email: this.email,
+      address: this.address,
+    };
+  }
+
+  isEmailValid() {
+    const pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return pattern.test(this.email);
+  }
+
+  updateField(key, value) {
+    if (this.hasOwnProperty(key)) {
+      this[key] = value;
     }
-    get Lastname() {
-        return this.lastname;
-    }
-    get Email() {
-        return this.email;
-    }
-    get Password() {
-        return this.password;
-    }
-    get Address() {
-        return this.address;
-    }
+  }
+
+  isStrongPassword() {
+    return this.password.length >= 8 && /\d/.test(this.password);
+  }
 }
 
-const maindata = new MainData("Emmanuel", "Amarikwa", "Amarikwa@gmail.com", "4673u2yvtt", "1234, Lagos, Nigeria");
-console.log(maindata);
-
-// ✅ Fix export typo
 export default MainData;
