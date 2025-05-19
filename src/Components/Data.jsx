@@ -1,5 +1,10 @@
 import React, { useEffect, useRef, useState } from 'react';
 import MainData from './MainData';
+import './Data.css'
+import lonRest10 from '../assets/lon-rest10.jpg';
+import lonRest9 from '../assets/lon-rest9.jpg';
+import lonRest3 from '../assets/lon-rest3.jpg';
+
 
 function Data() {
   const maindata = new MainData(
@@ -12,25 +17,8 @@ function Data() {
 
   // Optional API request format
   const jsonData = maindata.toJSON();
-  const [loading, setLoading] = useState(false)
+ 
 
-  useEffect(() => {
-    // Trigger loading on first render
-    const loadPay = () => {
-      setTimeout(() => {
-        setLoading(true);
-      }, 2000);
-    };
-    loadPay();
-  }, []);
-
-
-
-  if (!loading) {
-    return <div className="loading">Wait... page is loading.</div>;
-  }
-
-  
 
 
   const [formdata, setFormdata] = useState([])
@@ -97,7 +85,30 @@ function Data() {
       </div>
     </div>
 
+     <div className='cardD'>
+       <div className='mycard'>
+        <img src={lonRest10} alt="rest man" />
+        <h2> cheta Emmanuel</h2>
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing enam illum perferendis, id aliquid ratione rerum? Natus, repellendus?</p>
 
+      </div>
+       <div className='mycard'>
+        <img src={lonRest10} alt="rest man" />
+        <h2> cheta Emmanuel</h2>
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing enam illum perferendis, id aliquid ratione rerum? Natus, repellendus?</p>
+
+      </div>
+       <div className='mycard'>
+        <img src={lonRest10} alt="rest man" />
+        <h2> cheta Emmanuel</h2>
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing enam illum perferendis, id aliquid ratione rerum? Natus, repellendus?</p>
+
+      </div>
+
+
+
+     </div>
+    
 
     </>
   );
