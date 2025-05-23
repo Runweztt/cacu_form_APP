@@ -71,11 +71,36 @@ function Data() {
   const handlepayment = (e) => {
     setPayment(e.target.value)
   }
+  const [comment, setComment ] = useState('')
+  const handlecomment = (e) => {
+    setComment(e.target.value)
+  }
+
+  const [color, setColor] = useState('#ffffff')
+
+  const handlecolorchange = (e) =>{
+    setColor(e.target.value)
+  }
 
   return (
-    <>
+    <>  
 
       <div>
+
+        <div  className='color-picker'>
+          <h1>color picker</h1>
+          <div className='color-display' style={{background:color}}>
+            <p>selected color : {color}</p>
+          </div>
+          <label>select a color </label>
+          <input type="color" value={color} onChange={handlecolorchange}/>
+        </div>
+
+        <textarea value={comment} onChange={handlecomment} name=" comment" id="">
+          comment here 
+        </textarea>
+
+        <p> comments:{comment}</p>
 
         <h1>payment option</h1>
 
