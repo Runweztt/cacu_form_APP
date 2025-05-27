@@ -82,10 +82,29 @@ function Data() {
     setColor(e.target.value)
   }
 
+  const [foods, setFoods] = useState(['apple','banana','orange','watermelon'])
+
+  const handleAdd = () =>{
+    const newfood = document.getElementById("foodinput").value;
+    document.getElementById("foodinput").value = ''
+
+    setFoods(f =>[...f,newfood])
+  }
+
   return (
     <>  
 
       <div>
+       <ul>
+        {
+          foods.map((food,index)=>(
+            <li key={index}>{food}</li>
+          ))
+        }
+       </ul>
+
+        <input type="text" id='foodinput' placeholder='enter food' />
+        <button  onClick={handleAdd}>add food</button>
 
         <div  className='color-picker'>
           <h1>color picker</h1>
