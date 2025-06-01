@@ -90,8 +90,102 @@ function Data() {
       setFoods(f =>[...f, newfodd])
     }
 
+
+
+
+
+
+
+
+
+   const [crimelist, setCrimelist] = useState([]); // Filtered results
+  const [searchInput, setSearchInput] = useState(''); // Input field text
+
+
+
+  const filelist = [
+  { name: 'john mike', time: '10:pm', case: 'active', crime: 'stealing' },
+  { name: 'jane doe', time: '2:am', case: 'closed', crime: 'fraud' },
+  { name: 'samuel black', time: '5:pm', case: 'pending', crime: 'assault' },
+  { name: 'linda smith', time: '11:am', case: 'active', crime: 'burglary' },
+  { name: 'paul walker', time: '7:pm', case: 'closed', crime: 'vandalism' },
+  { name: 'emma jones', time: '9:am', case: 'active', crime: 'cybercrime' },
+  { name: 'mark lee', time: '3:pm', case: 'pending', crime: 'shoplifting' },
+  { name: 'nina brown', time: '8:am', case: 'active', crime: 'arson' },
+  { name: 'tony stark', time: '1:am', case: 'closed', crime: 'fraud' },
+  { name: 'clara kent', time: '6:pm', case: 'active', crime: 'identity theft' },
+  { name: 'brian o’connor', time: '4:am', case: 'pending', crime: 'smuggling' },
+  { name: 'susan ray', time: '12:pm', case: 'active', crime: 'embezzlement' },
+  { name: 'david king', time: '7:am', case: 'closed', crime: 'theft' },
+  { name: 'kate winslet', time: '10:am', case: 'pending', crime: 'scamming' },
+  { name: 'jerry fox', time: '11:pm', case: 'active', crime: 'pickpocketing' }
+];
+    
+
+   const handleInputChange = (e) => {
+    setSearchInput(e.target.value);
+  };
+
+  const searchCrime = () => {
+    const filtered = filelist.filter(item =>
+      item.case.toLowerCase() === searchInput.toLowerCase()
+    );
+    setCrimelist(filtered);
+  };
+
+
+
+
+
   return (
     <>  
+
+
+          <div>
+      <h1>Crime File</h1>
+      <label>
+        Parameters to Enter <br />
+        <span>active</span> <span>closed</span> <span>pending</span>
+      </label>
+      <br />
+      <input
+        type="text"
+        placeholder="Enter field here........."
+        value={searchInput}
+        onChange={handleInputChange}
+      />
+      <button onClick={searchCrime} className="add-btn">
+        Search
+      </button>
+
+      <ul>
+        {crimelist.length > 0 ? (
+          crimelist.map((item, index) => (
+            <li key={index}>{item.name} - {item.case} - {item.crime}</li>
+          ))
+        ) : (
+          <li>No data found. Try 'active', 'closed' or 'pending'.</li>
+        )}
+      </ul>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
       <div>
 
