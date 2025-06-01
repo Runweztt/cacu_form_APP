@@ -1,0 +1,360 @@
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+  padding: 20px;
+}
+
+/* Main container */
+.todo-container {
+  max-width: 800px;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  animation: slideIn 0.6s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Header section */
+.todo-list {
+  padding: 40px 30px 30px;
+  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  color: white;
+  text-align: center;
+}
+
+.todo-list h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 30px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Input section */
+.input-section {
+  display: flex;
+  gap: 15px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+.input-section input {
+  flex: 1;
+  min-width: 250px;
+  padding: 15px 20px;
+  border: none;
+  border-radius: 50px;
+  font-size: 1rem;
+  background: rgba(255, 255, 255, 0.9);
+  color: #333;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.input-section input:focus {
+  outline: none;
+  background: white;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
+}
+
+.input-section input::placeholder {
+  color: #666;
+  font-style: italic;
+}
+
+.add-btn {
+  padding: 15px 30px;
+  background: linear-gradient(135deg, #ff6b6b, #ee5a52);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  min-width: 120px;
+}
+
+.add-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(255, 107, 107, 0.4);
+}
+
+.add-btn:active {
+  transform: translateY(0);
+}
+
+/* Tasks list */
+.tasks-container {
+  padding: 30px;
+}
+
+.tasks-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.task-item {
+  background: white;
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  animation: taskSlideIn 0.4s ease-out;
+}
+
+@keyframes taskSlideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.task-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+}
+
+.task-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.task-text {
+  flex: 1;
+  font-size: 1.1rem;
+  color: #333;
+  font-weight: 500;
+  min-width: 200px;
+  word-break: break-word;
+}
+
+.task-buttons {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.task-btn {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.delete-btn {
+  background: linear-gradient(135deg, #ff6b6b, #ee5a52);
+  color: white;
+}
+
+.delete-btn:hover {
+  background: linear-gradient(135deg, #ff5252, #e53935);
+  transform: scale(1.05);
+}
+
+.move-btn {
+  background: linear-gradient(135deg, #4facfe, #00f2fe);
+  color: white;
+  min-width: 45px;
+}
+
+.move-btn:hover {
+  background: linear-gradient(135deg, #2196f3, #21cbf3);
+  transform: scale(1.05);
+}
+
+.move-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Empty state */
+.empty-state {
+  text-align: center;
+  padding: 60px 20px;
+  color: #666;
+}
+
+.empty-state-icon {
+  font-size: 4rem;
+  margin-bottom: 20px;
+  opacity: 0.5;
+}
+
+.empty-state-text {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.empty-state-subtext {
+  color: #999;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  body {
+    padding: 10px;
+  }
+  
+  .todo-container {
+    margin: 0;
+    border-radius: 15px;
+  }
+  
+  .todo-list {
+    padding: 30px 20px 25px;
+  }
+  
+  .todo-list h1 {
+    font-size: 2rem;
+    margin-bottom: 25px;
+  }
+  
+  .input-section {
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .input-section input {
+    min-width: auto;
+    width: 100%;
+  }
+  
+  .add-btn {
+    width: 100%;
+    min-width: auto;
+  }
+  
+  .tasks-container {
+    padding: 20px;
+  }
+  
+  .task-item {
+    padding: 15px;
+  }
+  
+  .task-content {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+  
+  .task-text {
+    min-width: auto;
+    text-align: center;
+  }
+  
+  .task-buttons {
+    justify-content: center;
+    gap: 6px;
+  }
+  
+  .task-btn {
+    flex: 1;
+    min-width: 70px;
+  }
+}
+
+@media (max-width: 480px) {
+  .todo-list h1 {
+    font-size: 1.7rem;
+    letter-spacing: 1px;
+  }
+  
+  .input-section input {
+    padding: 12px 18px;
+    font-size: 0.95rem;
+  }
+  
+  .add-btn {
+    padding: 12px 20px;
+    font-size: 0.95rem;
+  }
+  
+  .task-text {
+    font-size: 1rem;
+  }
+  
+  .task-btn {
+    padding: 6px 12px;
+    font-size: 0.8rem;
+  }
+}
+
+/* Focus and accessibility improvements */
+.add-btn:focus,
+.task-btn:focus {
+  outline: 3px solid rgba(79, 172, 254, 0.5);
+  outline-offset: 2px;
+}
+
+.input-section input:focus {
+  outline: 3px solid rgba(79, 172, 254, 0.3);
+  outline-offset: 2px;
+}
+
+/* Smooth scrolling for long lists */
+.tasks-container {
+  max-height: 600px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(79, 172, 254, 0.3) transparent;
+}
+
+.tasks-container::-webkit-scrollbar {
+  width: 6px;
+}
+
+.tasks-container::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.tasks-container::-webkit-scrollbar-thumb {
+  background: rgba(79, 172, 254, 0.3);
+  border-radius: 3px;
+}
+
+.tasks-container::-webkit-scrollbar-thumb:hover {
+  background: rgba(79, 172, 254, 0.5);
+}
