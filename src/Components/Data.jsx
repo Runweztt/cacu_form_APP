@@ -99,8 +99,7 @@ function Data() {
 
 
 
-   const [crimelist, setCrimelist] = useState([]); // Filtered results
-  const [searchInput, setSearchInput] = useState(''); // Input field text
+   
 
 
 
@@ -121,54 +120,54 @@ function Data() {
   { name: 'kate winslet', time: '10:am', case: 'pending', crime: 'scamming' },
   { name: 'jerry fox', time: '11:pm', case: 'active', crime: 'pickpocketing' }
 ];
-    
+ 
 
-   const handleInputChange = (e) => {
-    setSearchInput(e.target.value);
-  };
-
-  const searchCrime = () => {
-    const filtered = filelist.filter(item =>
-      item.case.toLowerCase() === searchInput.toLowerCase()
-    );
-    setCrimelist(filtered);
-  };
+const [crimedata, setCrimedata] = useState([]);
+const [sreachinput, setSreachinput] = useState("")
 
 
+ const handleInputSreach =(e)=>{
+  setSreachinput(e.target.value)
+ }
+   const sreachinputitem = () =>{
 
+    const filered = filelist.filter(items =>
+      items.case.toLowerCase() === sreachinput.toLowerCase());
+      setCrimedata(filered)
+   }
 
 
   return (
     <>  
+       <div>
+        <div>
+          <label>sreach input <br/>  <span>active</span> <span>closed</span> <span>pending</span></label> <br/>
 
+          <input type="text"
+           placeholder='enter sreach here.....'
+           value={sreachinput} 
+           onChange={handleInputSreach} />
 
-          <div>
-      <h1>Crime File</h1>
-      <label>
-        Parameters to Enter <br />
-        <span>active</span> <span>closed</span> <span>pending</span>
-      </label>
-      <br />
-      <input
-        type="text"
-        placeholder="Enter field here........."
-        value={searchInput}
-        onChange={handleInputChange}
-      />
-      <button onClick={searchCrime} className="add-btn">
-        Search
-      </button>
+          <button className='add-btn'onClick={sreachinputitem}> SREACH</button>
+        </div>
+         
 
-      <ul>
-        {crimelist.length > 0 ? (
-          crimelist.map((item, index) => (
-            <li key={index}>{item.name} - {item.case} - {item.crime}</li>
-          ))
-        ) : (
-          <li>No data found. Try 'active', 'closed' or 'pending'.</li>
-        )}
-      </ul>
-    </div>
+         <ul>
+          {
+            crimedata.length > 0 ?(
+              crimedata.map((item, index)=>(
+              <li key={index}>{item.name} - {item.case} - {item.crime}</li>
+                )
+              )
+            ):(
+              <li>no data found try again</li>
+            )
+          }
+         </ul>
+
+       </div>
+
+        
 
 
 
