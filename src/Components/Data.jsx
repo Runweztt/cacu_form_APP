@@ -6,6 +6,7 @@ import lonRest9 from '../assets/lon-rest9.jpg';
 import lonRest3 from '../assets/lon-rest3.jpg';
 
 
+
 function Data() {
   const maindata = new MainData(
     'Emmanuel',

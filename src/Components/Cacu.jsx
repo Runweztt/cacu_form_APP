@@ -2,6 +2,7 @@ import React, { useEffect, useReducer, useState } from 'react';
 import './Cacu.css';
 import { DigitButton } from './DigitButton';
 import { OperationButton } from './OperationButton';
+import Digital from './Digital';
 
 export const ACTIONS = {
   ADD_DIGIT: 'add_digit',
@@ -153,9 +154,14 @@ if (!loading) {
   }
 
   return (
+
+
     <div className='container'>
+ 
       <div className='cucu-grid'>
+             <Digital/>
         <div className='output'>
+          
           <div className='prev-operand'>{formatOperand(previousOperand)} {operation}</div>
           <div className='curr-operand'>{formatOperand(currentOperand)}</div>
         </div>

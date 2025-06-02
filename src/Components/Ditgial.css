@@ -1,0 +1,16 @@
+
+
+.clock{
+    color: black;
+    font-size: 6rem;
+    font-weight: bold;
+    font-family: monospace;
+    text-shadow: 3px 3px 5px white;
+    text-align: center;
+
+}
+.clock_container{
+    backdrop-filter: blur(5px);
+    width: 100vh;
+    padding: 10px 0;
+}
