@@ -136,20 +136,37 @@ const [sreachinput, setSreachinput] = useState("")
       setCrimedata(filered)
    }
 
+  const [mycolor,setMycolor]= useState('white')
+   useEffect(()=>{
+    const handlecolorChnage =()=>{
+      if(window.scrollY >= 100){
+        setMycolor('grey')
+      }else{
+        setMycolor('white')
+      }
+
+    }
+    window.addEventListener('scroll', handlecolorChnage);
+    return ()=>{window.removeEventListener('scroll', handlecolorChnage)}
+   },[])
 
   return (
     <>  
        <div>
         <div>
-          <label>sreach input <br/>  <span>active</span> <span>closed</span> <span>pending</span></label> <br/>
+          <label>sreach input
+          <br/> 
+           <span>active</span> <span>closed</span> <span>pending</span></label>
+            <br/>
 
           <input type="text"
            placeholder='enter sreach here.....'
            value={sreachinput} 
-           onChange={handleInputSreach} />
+           onChange={handleInputSreach}/>
 
           <button className='add-btn'onClick={sreachinputitem}> SREACH</button>
-        </div>
+
+          </div>
          
 
          <ul>
@@ -163,6 +180,7 @@ const [sreachinput, setSreachinput] = useState("")
               <li>no data found try again</li>
             )
           }
+
          </ul>
 
        </div>
@@ -187,7 +205,7 @@ const [sreachinput, setSreachinput] = useState("")
 
 
 
-      <div>
+      <div style={{background: mycolor}}>
 
         <h1>item list</h1>
 
