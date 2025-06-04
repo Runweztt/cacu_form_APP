@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './Todo.css'
 
 function Todo() {
@@ -44,6 +44,24 @@ function Todo() {
       addTasks();
     }
   }
+
+const [loaded,setLoaded] = useState(true)
+
+useEffect(()=>{
+  const handlelOADED=()=>{
+    setTimeout(()=>{
+      setLoaded(false)
+    },2000)
+  }
+  handlelOADED()
+},[])
+
+if(loaded){
+  return <div>please wait while page load................</div>
+}
+
+
+
 
   return (
     <div className="todo-container">
