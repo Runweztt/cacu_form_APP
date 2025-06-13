@@ -29,21 +29,7 @@ function Digital() {
     }
 
 
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const loadLayout = () => {
-      setTimeout(() => {
-        setLoading(false);
-      }, 2000);
-    };
-    loadLayout();
-  }, []);
-
-  if (loading) {
-    return <div>Wait, page is loading...</div>;
-  }
-
+ 
 
   return (
     <div className='clock_container'>
