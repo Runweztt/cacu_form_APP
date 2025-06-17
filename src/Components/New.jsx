@@ -50,7 +50,13 @@ const submitsearch = ()=>{
           <button onClick={submitsearch}>search</button>
 
     {
-      
+        crimelist.length > 0 ? (
+            crimelist.map((item,index)=>(
+                <li key={index}>{item.name}-{item.case}-{item.crime}</li>
+            ))
+        ):(
+            <li>no data found</li>
+        )
     }
 
 
