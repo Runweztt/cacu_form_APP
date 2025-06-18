@@ -98,6 +98,7 @@ function reducer(state, { type, payload }) {
   }
 }
 
+
 function evaluate({ currentOperand, previousOperand, operation }) {
   const prev = parseFloat(previousOperand);
   const current = parseFloat(currentOperand);
@@ -148,6 +149,7 @@ useEffect(()=>{
     }
     loadpage();
 },[]);
+
 
 if (!loading) {
     return <div className="loading">Wait... page is loading.</div>;

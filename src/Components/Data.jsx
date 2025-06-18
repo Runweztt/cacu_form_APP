@@ -120,13 +120,13 @@ function Data() {
   { name: 'kate winslet', time: '10:am', case: 'pending', crime: 'scamming' },
   { name: 'jerry fox', time: '11:pm', case: 'active', crime: 'pickpocketing' }
 ];
- 
+
 
 const [crimedata, setCrimedata] = useState([]);
 const [sreachinput, setSreachinput] = useState("")
 
 
- const handleInputSreach =(e)=>{
+  const handleInputSreach =(e)=>{
   setSreachinput(e.target.value)
  }
    const sreachinputitem = () =>{

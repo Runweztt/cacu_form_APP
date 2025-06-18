@@ -29,8 +29,6 @@ function Digital() {
     }
 
 
- 
-
   return (
     <div className='clock_container'>
         <div clock>

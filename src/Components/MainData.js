@@ -34,9 +34,10 @@ class MainData {
       this[key] = value;
     }
   }
-
+  
   isStrongPassword() {
     return this.password.length >= 8 && /\d/.test(this.password);
+
   }
 }
 
