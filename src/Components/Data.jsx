@@ -152,6 +152,7 @@ const [sreachinput, setSreachinput] = useState("")
 
   return (
     <>  
+
        <div>
         <div>
           <label>sreach input
@@ -167,7 +168,6 @@ const [sreachinput, setSreachinput] = useState("")
           <button className='add-btn'onClick={sreachinputitem}> SREACH</button>
 
           </div>
-         
 
          <ul>
           {
@@ -179,10 +179,10 @@ const [sreachinput, setSreachinput] = useState("")
             ):(
               <li>no data found try again</li>
             )
-          }
-
+          } 
+                  
          </ul>
-
+                            
        </div>
 
         
