@@ -39,6 +39,20 @@ const submitsearch = ()=>{
 }
 
 
+const [showModal, setShowModal] = useState(false)
+const [removeModal, setRemoveModal] = useState("")
+
+
+const displayModa = ()=>{
+  setShowModal(true)
+}
+
+const handleRemove =()=>{
+  setShowModal(false)
+    window.scrollTo({ top: 0, behavior: 'smooth' }); 
+}
+
+
 
   return (
     <div>
@@ -49,18 +63,19 @@ const submitsearch = ()=>{
           <h1>follow up</h1>
           <h2>things we do for code</h2>
           <p>temporibus molestias voluptatibus ad, quisquam consectetur. Neque aliquid mollitia corrupti sint?</p>
-          <button> check modal</button>
+          <button onClick={displayModa}> check modal</button>
 
         </div>
 
-        <div className='modal-main'>
+        <div className='modal-main'style={{display: showModal?'block':'none'}}>
           Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illo placeat similique,
            sequi dolorem autem sed quibusdam quisquam unde saepe vel expedita iure excepturi 
            nam debitis accusamus id praesentium voluptatum beatae?
            
-           <button>remove</button>
+           <button onClick={handleRemove}>remove</button>
 
         </div>
+        
           
 
        </div>
