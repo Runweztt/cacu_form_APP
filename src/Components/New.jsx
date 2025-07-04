@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import './New.css'
 
 function New() {
 
@@ -41,6 +42,47 @@ const submitsearch = ()=>{
 
   return (
     <div>
+
+       <div className='modal'>
+
+        <div className='card'>
+          <h1>follow up</h1>
+          <h2>things we do for code</h2>
+          <p>temporibus molestias voluptatibus ad, quisquam consectetur. Neque aliquid mollitia corrupti sint?</p>
+          <button> check modal</button>
+
+        </div>
+
+        <div className='modal-main'>
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illo placeat similique,
+           sequi dolorem autem sed quibusdam quisquam unde saepe vel expedita iure excepturi 
+           nam debitis accusamus id praesentium voluptatum beatae?
+           
+           <button>remove</button>
+
+        </div>
+          
+
+       </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         <h1> search crime database</h1>
           <p>field item <span>active, pending, closed </span></p>
 
