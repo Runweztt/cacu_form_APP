@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
 import './New.css'
 
 function New() {
@@ -40,22 +40,74 @@ const submitsearch = ()=>{
 
 
 const [showModal, setShowModal] = useState(false)
-const [removeModal, setRemoveModal] = useState("")
+
 
 
 const displayModa = ()=>{
-  setShowModal(true)
+  setTimeout(()=>{
+    setShowModal(true)
+  },2000)
 }
 
 const handleRemove =()=>{
   setShowModal(false)
-    window.scrollTo({ top: 0, behavior: 'smooth' }); 
+  
+}
+
+
+const [formlist,setFormlist] = useState([])
+
+const Name = useRef(null)
+const mailinput = useRef(null)
+const passwordinput = useRef(null)
+
+
+const handleformvalidation = (e)=>{
+    e.preventDefault();
+
+    const fullName = Name.current.value.trim()
+    const Email = mailinput.current.value.trim()
+    const passWORD = passwordinput.current.value.trim()
+
+  
+    
+    if(!fullName || !Email || !passWORD){
+        setFormlist(prev =>[...prev("please enter all fields")])
+    }
+    if(!Email.includes('@')){
+         setFormlist(prev =>[...prev("invalid email")])
+    }
+    if (!passWORD.length < 6){
+         setFormlist(prev =>[...prev("password not strong ")])
+    }
+
 }
 
 
 
   return (
     <div>
+          
+
+          <form>
+            <input type="text" placeholder='enter name ' required ref={Name} />
+            <input type="email" placeholder='enter email' required ref={mailinput} />
+            <input type="password" placeholder='enter password' required ref={passwordinput} />
+          </form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
        <div className='modal'>
 
