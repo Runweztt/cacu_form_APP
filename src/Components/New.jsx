@@ -70,16 +70,23 @@ const handleformvalidation = (e)=>{
     const passWORD = passwordinput.current.value.trim()
 
   
-    
+     const errors =[]
     if(!fullName || !Email || !passWORD){
-        setFormlist(prev =>[...prev("please enter all fields")])
+        errors.push("please enter all fields")
     }
     if(!Email.includes('@')){
-         setFormlist(prev =>[...prev("invalid email")])
+         errors.push("invalid email")
     }
     if (!passWORD.length < 6){
-         setFormlist(prev =>[...prev("password not strong ")])
+         errors.push("password not strong ")
     }
+    if(errors.length > 0){
+      setFormlist(errors);
+      return;
+    }
+    const userForm ={fullName, Email, passWORD}
+    localStorage.setItem('newUserForm', JSON.stringify(userForm))
+    setFormlist(['Registration sucessful'])
 
 }
 
